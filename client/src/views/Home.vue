@@ -1,83 +1,32 @@
 <template>
-  <header class="home">
-    <aside class="aside_container">
-      <div class="aside_elements">
-        <ButtonStyleAside txtButton="DashbBoard" />
-        <ButtonStyleAside txtButton="DashbBoard" />
-        <ButtonStyleAside txtButton="DashbBoard" />
-      </div>
-    </aside>
-    <nav>
-      <div class="elements_nav">
-        <ButtonGrafic txtButtonGrafic="gap1" />
-        <ButtonGrafic txtButtonGrafic="gap2" />
-        <ButtonGrafic txtButtonGrafic="gap3" />
-        <ButtonGrafic txtButtonGrafic="gap4" />
-        <ButtonGrafic txtButtonGrafic="gap5" />
-      </div>
-      <div class="elements_nav">
-        <p>
-        <ButtonGrafic txtButtonGrafic="gap5" />
-        </p>
-      </div>
-    </nav>
-    <!-- <footer>
-      <div>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur
-          a non magnam vel recusandae iusto officia veniam in temporibus. Animi
-          dignissimos eaque, quaerat distinctio aliquid ex error ut non
-          repudiandae?
-        </p>
-      </div>
-    </footer> -->
-  </header>
+  <div>
+    <router-link to="/DashBoard">DashBoard</router-link>
+    <p>home</p>
+    <form @submit.prevent>
+      <input type="number" v-model="inputValue.num" />
+      <button @click="AddValueInArray(inputValue)">dddd</button>
+      <li v-for="arr in array" :key="arr">{{ arr }}</li>
+    </form>
+  </div>
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
-import ButtonStyleAside from "../components/buttons/ButtonStyleAside.vue";
-import ButtonGrafic from "../components/buttons/ButtonGrafic.vue";
 export default {
-  name: "Home",
-  components: {
-    HelloWorld,
-    ButtonStyleAside,
-    ButtonGrafic,
+  data() {
+    return {
+      inputValue: {
+        num: "",
+      },
+      array: [],
+    };
+  },
+  methods: {
+    AddValueInArray(inputValue) {
+      this.inputValue.num === "" ? false : this.array.push(this.inputValue.num);
+      this.inputValue.num = "";
+    },
   },
 };
 </script>
-<style scoped>
-.home {
-  background: #fff;
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-areas: "aside_container" "nav" ;
-  grid-template-columns: 20% 1fr ;
-}
-.aside_container {
-  height: 100vh;
-  background: #050917;
-  grid-area: "aside_container";
-}
-.aside_elements {
-  width: auto;
-  height: auto;
-  margin: 5px;
-  margin-right: 10px;
-}
-nav {
-  grid-area: "nav";
-}
-.elements_nav {
-  background: rgb(112, 132, 133);
-  padding: 5px;
-  height: 50vh;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-evenly;
-}
 
-
-</style>
+<style></style>
