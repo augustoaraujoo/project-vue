@@ -19,25 +19,35 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+*{
+color: #fff;
+}
 .Container_Style_Aside {
-  width: 100%;
+  cursor: pointer;
+  background: #172C72;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
 }
 #Button_Style_Aside {
+  background: transparent;
+  position: relative;
+  right: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 1px solid rgb(19, 18, 17);
-  width: 10vw;
-  height: 50px;
+  border: none;
+  width: 80%;
+  height: 45px;
+  margin: 0 auto;
 }
 #img_Button {
-  margin-left:auto ;
   width: auto;
   height: 30px;
 }

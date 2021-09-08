@@ -2,23 +2,26 @@
   <header class="home">
     <aside class="aside_container">
       <div class="aside_elements">
-        <ButtonStyleAside txtButton="DashbBoard"/>
-        
-        <ButtonStyleAside txtButton="DashbBoard"/>
-        <ButtonStyleAside txtButton="DashbBoard"/>
+        <ButtonStyleAside txtButton="DashbBoard" />
+        <ButtonStyleAside txtButton="DashbBoard" />
+        <ButtonStyleAside txtButton="DashbBoard" />
       </div>
     </aside>
     <nav>
-      <div>
+      <div class="elements_nav">
+        <ButtonGrafic txtButtonGrafic="gap1" />
+        <ButtonGrafic txtButtonGrafic="gap2" />
+        <ButtonGrafic txtButtonGrafic="gap3" />
+        <ButtonGrafic txtButtonGrafic="gap4" />
+        <ButtonGrafic txtButtonGrafic="gap5" />
+      </div>
+      <div class="elements_nav">
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est,
-          nesciunt commodi provident explicabo libero ducimus eligendi suscipit
-          itaque aspernatur, aut repellat architecto! Incidunt repudiandae
-          consequatur, tempora aliquam ratione aspernatur dolore?
+        <ButtonGrafic txtButtonGrafic="gap5" />
         </p>
       </div>
     </nav>
-    <footer>
+    <!-- <footer>
       <div>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur
@@ -27,46 +30,54 @@
           repudiandae?
         </p>
       </div>
-    </footer>
+    </footer> -->
   </header>
 </template>
 
 <script>
 import HelloWorld from "@/components/HelloWorld.vue";
-import ButtonStyleAside from '../components/buttons/ButtonStyleAside.vue'
+import ButtonStyleAside from "../components/buttons/ButtonStyleAside.vue";
+import ButtonGrafic from "../components/buttons/ButtonGrafic.vue";
 export default {
   name: "Home",
   components: {
     HelloWorld,
-    ButtonStyleAside
+    ButtonStyleAside,
+    ButtonGrafic,
   },
 };
 </script>
 <style scoped>
 .home {
+  background: #fff;
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-areas: "aside_container" "nav" "footer";
-  grid-template-columns: 20% 1fr 1fr;
+  grid-template-areas: "aside_container" "nav" ;
+  grid-template-columns: 20% 1fr ;
 }
 .aside_container {
   height: 100vh;
-  background: rgb(245, 237, 237);
+  background: #050917;
   grid-area: "aside_container";
 }
-.aside_elements{
-  display: grid;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
+.aside_elements {
+  width: auto;
+  height: auto;
+  margin: 5px;
+  margin-right: 10px;
 }
 nav {
-  background: rebeccapurple;
   grid-area: "nav";
 }
-footer {
-  background: purple;
-  grid-area: "footer";
+.elements_nav {
+  background: rgb(112, 132, 133);
+  padding: 5px;
+  height: 50vh;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
 }
+
+
 </style>
