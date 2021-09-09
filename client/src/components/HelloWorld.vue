@@ -8,7 +8,11 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    msg: String,
+    valorFinal:{
+          a:1,
+          b:2
+      }
   }
 }
 </script>
