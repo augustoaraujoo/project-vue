@@ -1,34 +1,34 @@
 <template>
   <div class="Container_Style_Aside">
-    <img
-      id="img_Button"
-      src="https://imagepng.org/wp-content/uploads/2019/08/google-icon-1.png"
-      alt=""
-    />
+    <img id="img_Button" :src="c" />
     <button id="Button_Style_Aside">
-      {{ txtButton }}
+      <p>{{ txtButton }}</p>
     </button>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {};
+  },
   props: {
     txtButton: Text,
+    c: Image,
   },
 };
 </script>
 
 <style scoped>
-*{
-color: #fff;
+* {
+  color: #fff;
 }
 .Container_Style_Aside {
   cursor: pointer;
-  background: #172C72;
+  background: #172c72;
   border-radius: 3px;
   padding: 5px;
-  margin: 5px;
+  margin: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,17 +37,17 @@ color: #fff;
 #Button_Style_Aside {
   background: transparent;
   position: relative;
-  right: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   border: none;
-  width: 80%;
+  width: 50%;
   height: 45px;
-  margin: 0 auto;
+  margin-right: auto;
 }
 #img_Button {
+  margin-left: auto;
   width: auto;
   height: 30px;
 }

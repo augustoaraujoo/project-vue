@@ -15,11 +15,11 @@ export default {
 <style scoped>
 #ButtonGrafic {
   display: flex;
-  background: rgb(255, 255, 255);
+  background: rgb(224, 200, 200);
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 120px;
+  width: 350px;
+  height: 230px;
   margin: 10px;
   border-radius: 5px;
 }
