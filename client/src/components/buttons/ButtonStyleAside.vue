@@ -46,6 +46,10 @@ export default {
   height: 45px;
   margin-right: auto;
 }
+#Button_Style_Aside >p{
+  background: rgba(255, 0, 0, 0.349);
+  font-size:18px;
+}
 #img_Button {
   margin-left: auto;
   width: auto;

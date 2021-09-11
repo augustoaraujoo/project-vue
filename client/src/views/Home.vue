@@ -14,6 +14,9 @@
       <p>Possui livros publicados:</p>
       <span>{{ publishedBooksMessage }}</span>
     </div>
+    <div>
+      <!-- <app-input :msg="message" @messageChanged="message = $event"></app-input> -->
+    </div>
   </div>
 </template>
 
@@ -22,7 +25,6 @@ import HelloWorld from "../components/HelloWorld.vue";
 export default {
   data() {
     return {
-      message: "Olá Vue js!",
       inputValue: {
         num: "",
       },
@@ -39,13 +41,16 @@ export default {
     };
   },
   components: {
-    HelloWorld,
-  },
+    HelloWorld
+      },
   methods: {
     AddValueInArray(inputValue) {
       this.inputValue.num === "" ? false : this.array.push(this.inputValue.num);
       this.inputValue.num = "";
-      this.$router.push("/DashBoard");
+      // this.$router.push("/DashBoard");
+      if (this.array.length > 1) {
+        return this.array.splice(this.inputValue.num, 1);
+      }
     },
   },
   computed: {

@@ -29,25 +29,11 @@
         <ButtonGrafic txtButtonGrafic="gap5" />
         <ButtonGrafic txtButtonGrafic="gap5" />
       </div>
-      <div class="elements_nav_end">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
-          provident! Est a modi animi enim, ad delectus, deleniti suscipit
-          magnam quas sequi cupiditate ipsam sit, aut voluptate consequuntur
-          dicta assumenda.
-        </p>
-      </div>
+      <div class="elements_nav_end"></div>
     </nav>
-    <!-- <footer>
-      <div>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur
-          a non magnam vel recusandae iusto officia veniam in temporibus. Animi
-          dignissimos eaque, quaerat distinctio aliquid ex error ut non
-          repudiandae?
-        </p>
+    <div>
+
       </div>
-    </footer> -->
   </header>
 </template>
 
@@ -60,6 +46,7 @@ export default {
   data() {
     return {};
   },
+  methods: {},
   components: {
     HelloWorld,
     ButtonStyleAside,
