@@ -15,7 +15,6 @@
       <span>{{ publishedBooksMessage }}</span>
     </div>
     <div>
-      <!-- <app-input :msg="message" @messageChanged="message = $event"></app-input> -->
     </div>
   </div>
 </template>
@@ -41,8 +40,8 @@ export default {
     };
   },
   components: {
-    HelloWorld
-      },
+    HelloWorld,
+  },
   methods: {
     AddValueInArray(inputValue) {
       this.inputValue.num === "" ? false : this.array.push(this.inputValue.num);

@@ -1,6 +1,6 @@
 <template>
   <div class="Container_Style_Aside">
-    <img id="img_Button" :src="c" />
+    <img id="img_Button" :src="imageProps" />
     <button id="Button_Style_Aside">
       <p>{{ txtButton }}</p>
     </button>
@@ -14,7 +14,7 @@ export default {
   },
   props: {
     txtButton: Text,
-    c: Image,
+    imageProps: Image,
   },
 };
 </script>
