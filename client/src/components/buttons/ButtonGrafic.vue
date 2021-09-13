@@ -1,14 +1,14 @@
 <template>
   <div id="ButtonGrafic">
-    <a>{{ txtButtonGrafic }}</a>
+    <p>{{ txtButtonGrafic }}</p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    txtButtonGrafic: Text,
-  },
+    txtButtonGrafic: Text
+  }
 };
 </script>
 

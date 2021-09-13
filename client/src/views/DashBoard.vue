@@ -34,6 +34,8 @@
       </header>
       <div class="elements_nav">
         <ButtonGrafic txtButtonGrafic="gap1" />
+
+        <p v-for="api in api_infos" :key="api">{{ api.ask }}</p>
         <ButtonGrafic txtButtonGrafic="gap2" />
         <ButtonGrafic txtButtonGrafic="gap3" />
         <ButtonGrafic txtButtonGrafic="gap4" />
@@ -42,7 +44,6 @@
       </div>
       <div class="elements_nav_end"></div>
     </nav>
-    <div></div>
   </header>
 </template>
 
@@ -50,12 +51,32 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 import ButtonStyleAside from "../components/buttons/ButtonStyleAside.vue";
 import ButtonGrafic from "../components/buttons/ButtonGrafic.vue";
+import axios from "axios";
 export default {
   name: "Home",
   data() {
-    return {};
+    return {
+      api_infos: null,
+    };
   },
-  methods: {},
+  mounted() {
+    this.getApi();
+  },
+
+  methods: {
+    async getApi() {
+      try {
+        axios
+          .get(`https://economia.awesomeapi.com.br/USD-BRL/1`)
+          .then((response) => {
+            this.api_infos =  response.data;
+            console.log(response.data);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
   components: {
     HelloWorld,
     ButtonStyleAside,
