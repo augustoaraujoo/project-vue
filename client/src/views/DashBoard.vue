@@ -26,23 +26,36 @@
           <p>DashbBoard</p>
         </div>
         <div id="div_dashbBoard">
-          <input type="text" />
-          <p>😃</p>
-          <p>😃</p>
-          <p>😃</p>
+          <input
+            type="text"
+            v-model="color"
+            placeholder="color"
+            @keyup="mudarBackground"
+          />
+          <p>🏬</p>
+          <p>📩</p>
+          <p>💁</p>
         </div>
       </header>
       <div class="elements_nav">
         <ButtonGrafic txtButtonGrafic="gap1" />
-
         <p v-for="api in api_infos" :key="api">{{ api.ask }}</p>
-        <ButtonGrafic txtButtonGrafic="gap2" />
-        <ButtonGrafic txtButtonGrafic="gap3" />
-        <ButtonGrafic txtButtonGrafic="gap4" />
-        <ButtonGrafic txtButtonGrafic="gap5" />
-        <ButtonGrafic txtButtonGrafic="gap5" />
       </div>
-      <div class="elements_nav_end"></div>
+      <div class="elements_nav_end">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt,
+          consectetur. Voluptatem consectetur deleniti ipsa nam delectus
+          sapiente! Repellat porro dolor quisquam magni nemo ratione inventore
+          laboriosam quis repellendus, consequuntur tempora? Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Reiciendis quas aperiam cum
+          itaque! Excepturi non perferendis ipsam dignissimos numquam
+          consequuntur, eveniet voluptate impedit porro temporibus culpa omnis
+          quia quisquam reiciendis? Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Aperiam voluptatum sequi, similique aliquam ipsa
+          fugiat expedita sint fugit, facilis neque dolorum vitae debitis
+          mollitia consectetur ad nobis excepturi, officia sapiente?.
+        </p>
+      </div>
     </nav>
   </header>
 </template>
@@ -57,6 +70,7 @@ export default {
   data() {
     return {
       api_infos: null,
+      color: ``,
     };
   },
   mounted() {
@@ -69,12 +83,16 @@ export default {
         axios
           .get(`https://economia.awesomeapi.com.br/USD-BRL/1`)
           .then((response) => {
-            this.api_infos =  response.data;
+            this.api_infos = response.data;
             console.log(response.data);
           });
       } catch (error) {
         console.log(error);
       }
+    },
+    mudarBackground() {
+      let home = document.querySelector(`.home`);
+      home.style.backgroundColor = this.color;
     },
   },
   components: {
@@ -101,7 +119,7 @@ export default {
 .aside_elements {
   padding: 5px;
   width: auto;
-  height: auto;
+  height: 100vh;
 }
 nav {
   grid-area: "nav";
@@ -110,9 +128,10 @@ nav {
   padding: 5px;
   height: 1fr;
   display: flex;
-  align-items: baseline;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 .elements_nav_end {
   background: rgb(30, 57, 58);
@@ -140,7 +159,7 @@ nav {
 }
 
 .header_container_dashbBoard > #p_dashbBoard {
-  width: 15%;
+  width: 16%;
   display: flex;
   align-items: center;
   justify-content: center;
