@@ -1,16 +1,13 @@
 <template>
   <div
-    class="Container_Style_Aside"
-    data-aos="fade"
-    data-aos-offset="200"
-    data-aos-delay="50"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out"
-  >
+    class="Container_Style_Aside">
     <img id="img_Button" :src="imageProps" />
     <button id="Button_Style_Aside">
       <p>{{ txtButton }}</p>
     </button>
+    <div>
+
+    </div>
   </div>
 </template>
 
@@ -18,7 +15,9 @@
 import "aos/dist/aos.css";
 export default {
   data() {
-    return {};
+    return {
+    activeColor: 'red',
+    };
   },
   props: {
     txtButton: Text,
@@ -28,8 +27,8 @@ export default {
 </script>
 
 <style scoped>
-* {
-  color: #fff;
+#check{
+  color: red;
 }
 .Container_Style_Aside {
   cursor: pointer;
@@ -41,8 +40,9 @@ export default {
   justify-content: center;
   flex-direction: row;
 }
+
 #Button_Style_Aside {
-  background: rgb(92, 92, 92);
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,6 +54,8 @@ export default {
 }
 #Button_Style_Aside > p {
   font-size: 18px;
+  font-weight:600;
+  color: rgb(36, 35, 35);
 }
 #img_Button {
   margin-left: auto;
