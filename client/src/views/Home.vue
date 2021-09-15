@@ -66,7 +66,7 @@
       </header>
       <div class="elements_nav">
         <ButtonGrafic txtButtonGrafic="gap1" />
-        <p v-for="api in api_infos" :key="api">{{ api.ask }}</p>
+        <p v-for="api in api_infos" :key="api">{{ api.high }}</p>
       </div>
     </nav>
   </header>
@@ -85,9 +85,6 @@ export default {
       api_infos: null,
     };
   },
-  mounted() {
-    this.getApi();
-  },
   components: {
     HelloWorld,
     ButtonStyleAside,
@@ -95,21 +92,22 @@ export default {
   },
   watch: {},
   computed: {},
+  async mounted() {
+    try {
+      const results = await axios.get(
+        `https://economia.awesomeapi.com.br/USD-BRL/`
+      );
+      this.api_infos = results.data;
+      const methodsInData = results.data.filter((results) => {
+        return console.log(results.low/2);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
   methods: {
     page() {
       this.$router.push("/About");
-    },
-    async getApi() {
-      try {
-        axios
-          .get(`https://economia.awesomeapi.com.br/USD-BRL/1`)
-          .then((response) => {
-            this.api_infos = response.data;
-            console.log(response.data);
-          });
-      } catch (error) {
-        console.log(error);
-      }
     },
     mudarBackground() {
       let home = document.querySelector(".home");
@@ -119,7 +117,7 @@ export default {
 };
 </script>
 <style scoped>
-.r{
+.r {
   color: red;
 }
 .home {

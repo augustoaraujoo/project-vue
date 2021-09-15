@@ -7,7 +7,7 @@
           @click="page"
           imageProps="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNSAxOWgtNHYtNGg0djR6bTYgMGgtNHYtOGg0djh6bTYgMGgtNHYtMTNoNHYxM3ptNiAwaC00di0xOWg0djE5em0xIDJoLTI0djJoMjR2LTJ6Ii8+PC9zdmc+"
         />
-         <ButtonStyleAside
+        <ButtonStyleAside
           txtButton="Profile"
           imageProps="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgNy4wMDFjMCAzLjg2NS0zLjEzNCA3LTcgN3MtNy0zLjEzNS03LTdjMC0zLjg2NyAzLjEzNC03LjAwMSA3LTcuMDAxczcgMy4xMzQgNyA3LjAwMXptLTEuNTk4IDcuMThjLTEuNTA2IDEuMTM3LTMuMzc0IDEuODItNS40MDIgMS44Mi0yLjAzIDAtMy44OTktLjY4NS01LjQwNy0xLjgyMi00LjA3MiAxLjc5My02LjU5MyA3LjM3Ni02LjU5MyA5LjgyMWgyNGMwLTIuNDIzLTIuNi04LjAwNi02LjU5OC05LjgxOXoiLz48L3N2Zz4="
         />
@@ -60,7 +60,7 @@
       </header>
       <div class="elements_nav">
         <ButtonGrafic txtButtonGrafic="gap1" />
-        <p v-for="api in api_infos" :key="api">{{ api.ask }}</p>
+        <p v-for="api in api_infos" :key="api">{{ api.low }}</p>
       </div>
       <div class="elements_nav_end">
         <p>
@@ -87,9 +87,6 @@ export default {
       },
     };
   },
-  mounted() {
-    this.getApi();
-  },
   components: {
     HelloWorld,
     ButtonStyleAside,
@@ -108,22 +105,22 @@ export default {
       return this.ator.licao.length < 1 ? `s` : `${max()}`;
     },
   },
+  async mounted() {
+    try {
+      const result = await axios
+        .get(`https://economia.awesomeapi.com.br/USD-BRL/1`)
+        .then((response) => {
+          this.api_infos = response.data;
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  },
   methods: {
     page() {
       this.$router.push("/");
     },
-    async getApi() {
-      try {
-        axios
-          .get(`https://economia.awesomeapi.com.br/USD-BRL/1`)
-          .then((response) => {
-            this.api_infos = response.data;
-            console.log(response.data);
-          });
-      } catch (error) {
-        console.log(error);
-      }
-    },
+
     mudarBackground() {
       let home = document.querySelector(".home");
       home.style.backgroundColor = this.color;
