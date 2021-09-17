@@ -68,6 +68,11 @@
         <ButtonGrafic txtButtonGrafic="gap1" />
         <p v-for="api in api_infos" :key="api">{{ api.high }}</p>
       </div>
+      <div>
+        {{ $store.state.user.first_name }}
+        <input type="text" v-model="myName" />
+        <button @click="saveName">save name</button>
+      </div>
     </nav>
   </header>
 </template>
@@ -83,6 +88,7 @@ export default {
     return {
       liked: false,
       api_infos: null,
+      myName: "",
     };
   },
   components: {
@@ -91,7 +97,8 @@ export default {
     ButtonGrafic,
   },
   watch: {},
-  computed: {},
+  computed: {
+  },
   async mounted() {
     try {
       const results = await axios.get(
@@ -99,13 +106,19 @@ export default {
       );
       this.api_infos = results.data;
       const methodsInData = results.data.filter((results) => {
-        return console.log(results.low/2);
+        return console.log(results.low / 2);
       });
     } catch (error) {
       console.log(error);
     }
   },
   methods: {
+    saveName() {
+      // //action
+      //  this.$store.dispatch('saveFirstName',this.myName);
+      //Mutation
+      return this.$store.commit('saveFirstName',this.myName);
+    },
     page() {
       this.$router.push("/About");
     },
