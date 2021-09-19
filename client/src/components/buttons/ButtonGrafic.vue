@@ -21,15 +21,51 @@
     </div>
     <div id="ButtonGrafic">
       <p>{{ txtButtonGrafic }}</p>
-      <p>gra</p>
+    </div>
+    <div>
+      <!-- <input type="text" v-model="filter" /> -->
+      <p v-for="todo in filterCountry" :key="todo">
+        {{ todo.cases }}
+        <img :src="todo.countryInfo.flag" alt="" />
+      </p>
     </div>
   </header>
 </template>
 
 <script>
+import axios from "axios";
 export default {
+  data() {
+    return {
+      todo: null,
+      filter: "",
+    };
+  },
   props: {
     txtButtonGrafic: Text,
+  },
+  computed: {
+    filterCountry() {
+      if (!this.filter) return this.todo;
+      return this.todo.filter((todo) =>
+        todo.country.toLowerCase().includes(this.filter.toLowerCase())
+      );
+    },
+  },
+  mounted() {
+    this.getApiWorld();
+  },
+  async mounted() {
+    try {
+      const results = await axios.get(`https://corona.lmao.ninja/v2/countries`);
+      const data = results.data.filter((data)=>{
+        return data.country === "Brazil"
+      });
+      this.todo = data;
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 </script>

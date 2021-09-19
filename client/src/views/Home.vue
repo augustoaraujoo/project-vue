@@ -38,7 +38,6 @@
     >
       <header class="header_container_dashbBoard">
         <div id="p_dashbBoard">
-          <!--clicked-->
           <p>DashbBoard</p>
           <span @click="liked = !liked">
             <p v-if="liked">true</p>
@@ -65,8 +64,7 @@
         </div>
       </header>
       <div class="elements_nav">
-        <ButtonGrafic txtButtonGrafic="gap1" />
-        <p v-for="api in api_infos" :key="api">{{ api.high }}</p>
+        <ButtonGrafic/>
       </div>
       <div>
         {{ $store.state.user.first_name }}
@@ -81,7 +79,6 @@
 import HelloWorld from "@/components/HelloWorld.vue";
 import ButtonStyleAside from "../components/buttons/ButtonStyleAside.vue";
 import ButtonGrafic from "../components/buttons/ButtonGrafic.vue";
-import axios from "axios";
 export default {
   name: "Home",
   data() {
@@ -97,27 +94,18 @@ export default {
     ButtonGrafic,
   },
   watch: {},
-  computed: {
-  },
-  async mounted() {
-    try {
-      const results = await axios.get(
-        `https://economia.awesomeapi.com.br/USD-BRL/`
-      );
-      this.api_infos = results.data;
-      const methodsInData = results.data.filter((results) => {
-        return console.log(results.low / 2);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  },
+
   methods: {
+    /* 💻 VUEX */
     saveName() {
       // //action
       //  this.$store.dispatch('saveFirstName',this.myName);
       //Mutation
-      return this.$store.commit('saveFirstName',this.myName);
+      if (this.myName === "") {
+        return false;
+      } else {
+        return this.$store.commit("saveFirstName", this.myName);
+      }
     },
     page() {
       this.$router.push("/About");
