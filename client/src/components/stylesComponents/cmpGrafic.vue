@@ -58,10 +58,9 @@ export default {
   async mounted() {
     try {
       const results = await axios.get(`https://corona.lmao.ninja/v2/countries`);
-      const data = results.data.filter((data)=>{
-        return data.country === "Brazil"
+      this.todo = results.data.filter((dataSearchBrazil) => {
+        return dataSearchBrazil.country === "Brazil";
       });
-      this.todo = data;
       console.log(data);
     } catch (error) {
       console.log(error);

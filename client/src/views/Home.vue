@@ -76,9 +76,8 @@
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
-import ButtonStyleAside from "../components/buttons/ButtonStyleAside.vue";
-import ButtonGrafic from "../components/buttons/ButtonGrafic.vue";
+import ButtonStyleAside from "../components/stylesComponents/cmpStyleAside.vue";
+import ButtonGrafic from "../components/stylesComponents/cmpGrafic.vue";
 export default {
   name: "Home",
   data() {
@@ -89,7 +88,6 @@ export default {
     };
   },
   components: {
-    HelloWorld,
     ButtonStyleAside,
     ButtonGrafic,
   },
@@ -98,9 +96,8 @@ export default {
   methods: {
     /* 💻 VUEX */
     saveName() {
-      // //action
-      //  this.$store.dispatch('saveFirstName',this.myName);
-      //Mutation
+      //! this.$store.dispatch('saveFirstName',this.myName);
+      //? Mutation ⬇️
       if (this.myName === "") {
         return false;
       } else {

@@ -5,9 +5,6 @@
     <button id="Button_Style_Aside">
       <p>{{ txtButton }}</p>
     </button>
-    <div>
-
-    </div>
   </div>
 </template>
 

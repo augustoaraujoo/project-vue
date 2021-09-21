@@ -72,9 +72,8 @@
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
-import ButtonStyleAside from "../components/buttons/ButtonStyleAside.vue";
-import ButtonGrafic from "../components/buttons/ButtonGrafic.vue";
+import ButtonStyleAside from "../components/stylesComponents/cmpStyleAside.vue";
+import ButtonGrafic from "../components/stylesComponents/cmpGrafic.vue";
 import axios from "axios";
 export default {
   name: "Home",
@@ -88,7 +87,6 @@ export default {
     };
   },
   components: {
-    HelloWorld,
     ButtonStyleAside,
     ButtonGrafic,
   },
