@@ -31,9 +31,9 @@
     </aside>
     <nav
       data-aos="fade"
-      data-aos-offset="100"
-      data-aos-delay="100"
-      data-aos-duration="500"
+      data-aos-offset="50"
+      data-aos-delay="50"
+      data-aos-duration="100"
       data-aos-easing="ease-in-out"
     >
       <header class="header_container_dashbBoard">
@@ -64,13 +64,14 @@
         </div>
       </header>
       <div class="elements_nav">
-        <ButtonGrafic/>
+        <ButtonGrafic />
       </div>
-      <div>
-        {{ $store.state.user.first_name }}
-        <input type="text" v-model="myName" />
-        <button @click="saveName">save name</button>
+      <!--<div> 
+      //!   {{ $store.state.user.first_name }}
+            <input type="text" v-model="myName" />
+      //?   <button @click="saveName">save name</button>
       </div>
+       --->
     </nav>
   </header>
 </template>
