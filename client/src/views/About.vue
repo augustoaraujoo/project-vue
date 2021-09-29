@@ -61,13 +61,10 @@
       </header>
       <div class="elements_nav">
         <ButtonGrafic txtButtonGrafic="gap1" />
-        <p v-for="api in api_infos" :key="api">{{ api.low }}</p>
       </div>
-      <div class="elements_nav_end">
-        <p>
+        <!-- <p>
           {{ actor }}
-        </p>
-      </div>
+        </p> -->
     </nav>
   </header>
 </template>
@@ -75,12 +72,11 @@
 <script>
 import ButtonStyleAside from "../components/stylesComponents/cmpStyleAside.vue";
 import ButtonGrafic from "../components/stylesComponents/cmpGrafic.vue";
-import axios from "axios";
+
 export default {
   name: "Home",
   data() {
     return {
-      api_infos: null,
       color: "",
       ator: {
         licao: [1, 2],
@@ -97,20 +93,20 @@ export default {
     },
   },
   computed: {
-    actor() {
-      const max = () => {
-        return Math.max(3, 2, 1, 5);
-      };
-      return this.ator.licao.length < 1 ? `s` : `${max()}`;
-    },
+    // actor() {
+    //   const max = () => {
+    //     return Math.max(3, 2, 1, 5);
+    //   };
+    //   return this.ator.licao.length < 1 ? `s` : `${max()}`;
+    // },
   },
   async mounted() {
     try {
       const result = await axios
-        .get(`https://economia.awesomeapi.com.br/USD-BRL/1`)
+        .get('http://localhost:8081/')
         .then((response) => {
-          this.api_infos = response.data;
         });
+        console.log(result);
     } catch (error) {
       console.log(error);
     }

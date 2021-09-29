@@ -52,9 +52,7 @@
             placeholder="color"
             @keyup="mudarBackground"
           />
-          <img
-            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNSAxOWgtNHYtNGg0djR6bTYgMGgtNHYtOGg0djh6bTYgMGgtNHYtMTNoNHYxM3ptNiAwaC00di0xOWg0djE5em0xIDJoLTI0djJoMjR2LTJ6Ii8+PC9zdmc+"
-          />
+         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 19h-6v-11h6v11zm8-18h-6v18h6v-18zm8 11h-6v7h6v-7zm1 9h-24v2h24v-2z"/></svg>
           <img
             src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkgNy4wMDFjMCAzLjg2NS0zLjEzNCA3LTcgN3MtNy0zLjEzNS03LTdjMC0zLjg2NyAzLjEzNC03LjAwMSA3LTcuMDAxczcgMy4xMzQgNyA3LjAwMXptLTEuNTk4IDcuMThjLTEuNTA2IDEuMTM3LTMuMzc0IDEuODItNS40MDIgMS44Mi0yLjAzIDAtMy44OTktLjY4NS01LjQwNy0xLjgyMi00LjA3MiAxLjc5My02LjU5MyA3LjM3Ni02LjU5MyA5LjgyMWgyNGMwLTIuNDIzLTIuNi04LjAwNi02LjU5OC05LjgxOXoiLz48L3N2Zz4="
           />
@@ -64,7 +62,7 @@
         </div>
       </header>
       <div class="elements_nav">
-        <ButtonGrafic />
+        <ButtonGrafic txtButtonGrafic="props Home" />
       </div>
       <!--<div> 
       //!   {{ $store.state.user.first_name }}
@@ -93,7 +91,14 @@ export default {
     ButtonGrafic,
   },
   watch: {},
-
+  async mounted() {
+    const result = await axios
+      .get("https://localhost:8081")
+      .then((response) => {
+        console.log(response.data);
+        return result;
+      });
+  },
   methods: {
     /* 💻 VUEX */
     saveName() {

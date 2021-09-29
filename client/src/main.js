@@ -1,7 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-
 import AOS from "aos";
 import store from './store'
 AOS.init({

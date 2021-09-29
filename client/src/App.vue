@@ -19,6 +19,9 @@ export default {
   margin: 0;
   box-sizing: border-box;
 }
+svg{
+  cursor:pointer;
+}
 #app {
   width: 100%;
   height: 100vh;

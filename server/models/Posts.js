@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     },
 });
 Posts.create({
-    name:'Ana',
-    year:19,
-    title:'def'
+    name:'badd',
+    year:20,
+    title:'abx'
 })
 return Posts;
 };
