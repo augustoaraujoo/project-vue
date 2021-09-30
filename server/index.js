@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const db = require("./models");
+
 db.sequelize.sync().then(() => {
   app.listen(8081, () => {
-    console.log("ok");
+    console.log("server runnig [ok]");
   });
 });

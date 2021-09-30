@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-});
-Posts.create({
-    name:'badd',
-    year:20,
-    title:'abx'
-})
-return Posts;
+  });
+  Posts.create({
+    name: "true nice code",
+    year: 20,
+    title: "abx",
+  });
+  return Posts;
 };
