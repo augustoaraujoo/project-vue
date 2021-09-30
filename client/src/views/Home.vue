@@ -41,7 +41,7 @@
           <p>DashbBoard</p>
           <span @click="liked = !liked">
             <p v-if="liked">✅</p>
-            <p v-else class="r">🇸🇹</p>
+            <p v-else class="redItem">🇸🇹</p>
           </span>
         </div>
         <div id="div_DashBoard">
@@ -139,7 +139,7 @@ export default {
 };
 </script>
 <style scoped>
-.r {
+.redItem {
   color: red;
 }
 .home {

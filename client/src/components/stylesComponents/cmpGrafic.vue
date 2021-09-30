@@ -105,6 +105,7 @@
           <a>Infos India</a>
         </div>
       </div>
+
     </div>
   </header>
 </template>
@@ -166,8 +167,8 @@ a {
 
 #apiFlagImg {
   border-radius: 5px;
-  width: 100px;
-  height: 70px;
+  width: 95px;
+  height: 65px;
 }
 #apiFlagImg {
   -webkit-animation: apiFlagImg 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
@@ -281,7 +282,7 @@ a {
 }
 #otherLorem {
   display: flex;
-  width: 50%;
+  width: 100%;
   height: 50%;
   margin-top: auto;
   align-items: center;

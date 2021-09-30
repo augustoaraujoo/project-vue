@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   Posts.create({
-    name: "true nice code",
-    year: 20,
+    name: "true",
+    year: 23,
     title: "abx",
   });
   return Posts;
